@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'sinatra/contrib/all'
+also_reload('./models')
 
 get '/' do
-  puts "Development in the works."
+  erb(:index)
 end
