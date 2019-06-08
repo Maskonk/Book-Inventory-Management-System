@@ -10,9 +10,9 @@ CREATE TABLE authors (
 CREATE TABLE items (
     id SERIAL8 PRIMARY KEY,
     name VARCHAR(255),
-    author TEXT,
+    description TEXT,
     quantity INT8,
     buying_cost FLOAT,
     selling_cost FLOAT,
-    manufacturer_id INT8 REFERENCES authors(id)
+    author_id INT8 REFERENCES authors(id)
 );
