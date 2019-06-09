@@ -9,8 +9,10 @@ get '/authors' do
 end
 
 get '/authors/:id' do
-  @books = Author.books
-  @author = Author.find(id)
+  p "APPLES #{params[:id].to_i}"
+  @author = Author.find(params[:id].to_i)
+  @books = @author.books
+
   erb(:'authors/show')
 end
 

@@ -9,7 +9,7 @@ class Item
     @quantity = options['quantity']
     @buying_cost = options['buying_cost'].to_f
     @selling_cost = options['selling_cost'].to_f
-    @author_id = options['author_id']
+    @author_id = options['author_id'].to_i
   end
 
   def save
@@ -46,7 +46,7 @@ class Item
     sql = "SELECT * FROM items WHERE id = $1"
     values = [id]
     result = SqlRunner.run(sql, values)
-    Item.new(result)
+    Item.new(result.first)
   end
 
   def self.delete_all

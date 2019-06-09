@@ -54,7 +54,7 @@ class Author
     sql = "SELECT * FROM authors WHERE id = $1"
     values = [id]
     result = SqlRunner.run(sql, values)
-    Author.new(result)
+    Author.new(result.first)
   end
 
   def self.delete_all
