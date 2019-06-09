@@ -1,6 +1,6 @@
 require_relative '../db/sql_runner'
 
-class Item
+class Book
   attr_reader :id, :name, :description, :quantity, :buying_cost, :selling_cost, :author_id
   def initialize(options)
     @id = options['id'].to_i
@@ -39,14 +39,14 @@ class Item
   def self.all
     sql = "SELECT * FROM items"
     result = SqlRunner.run(sql)
-    result.map {|item| Item.new(item)}
+    result.map {|item| Book.new(item)}
   end
 
   def self.find(id)
     sql = "SELECT * FROM items WHERE id = $1"
     values = [id]
     result = SqlRunner.run(sql, values)
-    Item.new(result.first)
+    Book.new(result.first)
   end
 
   def self.delete_all

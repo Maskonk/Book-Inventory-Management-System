@@ -1,0 +1,6 @@
+<h2> All Authors</h2>
+<% @authors.each do |author| %>
+<%= author.pretty_name %> <br>
+<a href="/authors/<%= author.id %>"> Find all books by this authors </a>
+<hr />
+<% end %>

@@ -31,6 +31,12 @@ post '/authors' do
   redirect '/authors'
 end
 
+post '/authors/:id/delete' do
+  author = Author.find(params['id'].to_i)
+  author.delete
+  redirect '/authors'
+end
+
 post '/authors/:id' do
   @author = Author.new(params)
   @author.update

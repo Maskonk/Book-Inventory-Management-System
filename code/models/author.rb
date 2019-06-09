@@ -1,5 +1,5 @@
 require_relative '../db/sql_runner'
-require_relative 'item'
+require_relative 'book'
 
 class Author
   attr_reader :id, :first_name, :last_name
@@ -41,7 +41,7 @@ class Author
     sql = "SELECT * from items JOIN authors ON authors.id = items.author_id WHERE authors.id = $1"
     values = [@id]
     result = SqlRunner.run(sql, values)
-    result.map {|item| Item.new(item)}
+    result.map {|item| Book.new(item)}
   end
 
   def self.all
