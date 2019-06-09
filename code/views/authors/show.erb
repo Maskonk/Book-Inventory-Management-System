@@ -1,1 +1,11 @@
 <h2> <%= @author.pretty_name %></h2>
+
+<h3> Books by this Author: <%= @books.count %> books found. </h3>
+<% @books.each do |book| %>
+  <p> Title:  <%= book.name %> </p>
+  <p>  In stock: <%= book.quantity %> </p>
+  <p> Buying cost: <%= book.buying_cost %> </p>
+  <p> Selling price: <%= book.selling_cost %> </p>
+  <p> Synopsis: <%= book.description %> </p>
+  <hr />
+<% end %>
