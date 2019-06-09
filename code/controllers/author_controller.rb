@@ -14,3 +14,7 @@ get '/authors/:id' do
   erb(:'authors/show')
 end
 
+get '/authors/new' do
+
+end
+
