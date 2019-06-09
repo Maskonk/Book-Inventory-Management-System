@@ -1,5 +1,8 @@
 <h2> <%= @author.pretty_name %></h2>
-
+<a href="/authors/<%= @author.id %>/edit"> Edit Order </a>
+<form action="/authors/<%= @author.id %>/delete" method="get">
+  <input type="submit" value="Edit Author">
+</form>
 <h3> Books by this Author: <%= @books.count %> books found. </h3>
 <% @books.each do |book| %>
   <p> Title:  <%= book.name %> </p>

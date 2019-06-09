@@ -1,0 +1,11 @@
+<h2> Edit <% @author.pretty_name %></h2>
+
+<form action="/authors/<%= @author.id %>" method="post">
+  <label for="first-name"> First name </label>
+  <input type="text" name="first_name" id="first-name" value="<% @author.first_name %>">
+  <br>
+  <label for="last-name"> Last name </label>
+  <input type="text" name="last_name" id="last-name" value="<% @author.last_name %>">
+  <br>
+  <input type="submit" value="Edit Author">
+</form>
