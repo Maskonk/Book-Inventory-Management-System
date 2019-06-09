@@ -38,7 +38,7 @@ class Author
   end
 
   def books
-    sql = "SELECT * from items JOIN authors ON authors.id = items.author_id WHERE authors.id = $1"
+    sql = "SELECT * from books JOIN authors ON authors.id = books.author_id WHERE authors.id = $1"
     values = [@id]
     result = SqlRunner.run(sql, values)
     result.map {|item| Book.new(item)}

@@ -2,10 +2,10 @@
 
 <form action="/authors/<%= @book.id %>" method="post">
   <label for="first-name"> First name </label>
-  <input type="text" name="first_name" id="first-name" value="<% @book.first_name %>">
+  <input type="text" name="first_name" id="first-name" value="<%= @book.first_name %>">
   <br>
   <label for="last-name"> Last name </label>
-  <input type="text" name="last_name" id="last-name" value="<% @book.last_name %>">
+  <input type="text" name="last_name" id="last-name" value="<%= @book.last_name %>">
   <br>
   <input type="submit" value="Edit Author">
 </form>

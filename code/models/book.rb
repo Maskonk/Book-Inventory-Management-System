@@ -13,7 +13,7 @@ class Book
   end
 
   def save
-    sql = "INSERT INTO items
+    sql = "INSERT INTO books
           (name, description, quantity, buying_cost, selling_cost, author_id)
           VALUES
           ($1, $2, $3, $4, $5, $6) RETURNING *"
@@ -23,7 +23,7 @@ class Book
   end
 
   def update
-    sql = "UPDATE items SET
+    sql = "UPDATE books SET
           (name, description, quantity, buying_cost, selling_cost, author_id)
           = ($1, $2, $3, $4, $5, $6) WHERE id = $7"
     values = [@name, @description, @quantity, @buying_cost, @selling_cost, @author_id, @id]
@@ -31,26 +31,26 @@ class Book
   end
 
   def delete
-    sql = "DELETE FROM items WHERE id = $1"
+    sql = "DELETE FROM books WHERE id = $1"
     values = [@id]
     SqlRunner.run(sql, values)
   end
 
   def self.all
-    sql = "SELECT * FROM items"
+    sql = "SELECT * FROM books"
     result = SqlRunner.run(sql)
     result.map {|item| Book.new(item)}
   end
 
   def self.find(id)
-    sql = "SELECT * FROM items WHERE id = $1"
+    sql = "SELECT * FROM books WHERE id = $1"
     values = [id]
     result = SqlRunner.run(sql, values)
     Book.new(result.first)
   end
 
   def self.delete_all
-    sql = "DELETE FROM items"
+    sql = "DELETE FROM books"
     SqlRunner.run(sql)
   end
 
