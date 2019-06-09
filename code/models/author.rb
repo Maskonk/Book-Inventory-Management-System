@@ -1,4 +1,5 @@
 require_relative '../db/sql_runner'
+require_relative 'item'
 
 class Author
   attr_reader :id, :first_name, :last_name
@@ -6,6 +7,10 @@ class Author
     @id = options['id'].to_i
     @first_name = options['first_name']
     @last_name = options['last_name']
+  end
+
+  def pretty_name
+    return "#{@first_name} #{@last_name}"
   end
 
   def save
@@ -30,6 +35,13 @@ class Author
     sql = "DELETE FROM authors WHERE id = $1"
     values = [@id]
     SqlRunner.run(sql, values)
+  end
+
+  def books
+    sql = "SELECT * from items JOIN authors ON authors.id = $1"
+    values = [@id]
+    result = SqlRunner.run(sql, values)
+    result.map {|item| Item.new(item)}
   end
 
   def self.all
