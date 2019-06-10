@@ -11,6 +11,13 @@
   <%end %>
   </select>
   <br>
+  <label for="category-select"> Select a Category </label>
+  <select id="category-select" name="category_id">
+    <% @categories.each do |category| %>
+      <option value="<%= category.id %>"> <%= category.name %> </option>
+    <%end %>
+  </select>
+  <br>
   <label for="stock"> Stock </label>
   <input type="number" name="quantity" id="stock">
   <br>

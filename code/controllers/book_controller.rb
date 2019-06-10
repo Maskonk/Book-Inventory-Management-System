@@ -10,6 +10,7 @@ end
 
 get '/books/new' do
   @authors = Author.all
+  @categories = Category.all
   erb(:'books/new')
 end
 
