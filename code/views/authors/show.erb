@@ -2,6 +2,7 @@
 <form action="/authors/<%= @author.id %>/edit" method="get">
   <input type="submit" value="Edit Author">
 </form>
+ <p style="color:red;">  WARNING deleting an author will also delete any books associated with that author! </p>
 <form action="/authors/<%= @author.id %>/delete" method="post">
   <input type="submit" value="Delete Author">
 </form>
