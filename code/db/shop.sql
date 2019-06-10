@@ -14,5 +14,5 @@ CREATE TABLE books (
     quantity INT8,
     buying_cost FLOAT,
     selling_cost FLOAT,
-    author_id INT8 REFERENCES authors(id) ON DELETE CASCADE 
+    author_id INT8 REFERENCES authors(id) ON DELETE CASCADE
 );

@@ -1,11 +1,27 @@
 <h2> Add a new Author</h2>
 
-<form action="/authors" method="post">
-  <label for="first-name"> First name </label>
-  <input type="text" name="first_name" id="first-name">
+<form action="/books" method="post">
+  <label for="title"> Title </label>
+  <input type="text" name="name" id="title">
   <br>
-  <label for="last-name"> Last name </label>
-  <input type="text" name="last_name" id="last-name">
+  <label for="author-select"> Select an Author </label>
+  <select id="author-select" name="author_id">
+    <% @authors.each do |author| %>
+    <option value="<%= author.id %>"> <%= author.pretty_name %> </option>
+  <%end %>
+  </select>
   <br>
-  <input type="submit" value="Add Author">
+  <label for="stock"> Stock </label>
+  <input type="number" name="quantity" id="stock">
+  <br>
+  <label for="buying"> Buying cost </label>
+  <input type="number" step="0.01" name="buying_cost" id="buying">
+  <br>
+  <label for="selling"> Selling price </label>
+  <input type="number" step="0.01" name="selling_cost" id="selling">
+  <br>
+  <label for="synopsis"> Synopsis </label>
+  <input type="text" name="description" id="synopsis">
+  <br>
+  <input type="submit" value="Add book">
 </form>

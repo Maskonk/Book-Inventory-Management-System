@@ -1,6 +1,12 @@
 <h2> All Authors</h2>
-<% @authors.each do |author| %>
-<%= author.pretty_name %> <br>
-<a href="/authors/<%= author.id %>"> Find all books by this authors </a>
+<% @books.each do |book| %>
+  <p> Title: <%= book.name %></p>
+  <p> Author: <%= book.author_name %></p>
+  <p> Stock: <%= book.quantity %></p>
+  <p> Buying cost: £<%= book.buying_cost %></p>
+  <p> Selling Price: £<%= book.selling_cost %></p>
+  <p> Synopsis: <%= book.description %></p>
+  <a href="/books/<%= book.id %>"> See this book </a> <br>
+  <a href="/authors/<%= book.author_id %>"> See this author </a>
 <hr />
 <% end %>

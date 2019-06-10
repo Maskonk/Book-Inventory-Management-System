@@ -1,44 +1,44 @@
 require 'sinatra'
 require 'sinatra/contrib/all'
 
-require_relative '../models/author'
+require_relative '../models/book'
 
 get '/books' do
-  @authors = Author.all
+  @books = Book.all
   erb(:'books/index')
 end
 
-get '/authors/new' do
-  erb(:'authors/new')
+get '/books/new' do
+  @authors = Author.all
+  erb(:'books/new')
 end
 
-get '/authors/:id/edit' do
-  @author = Author.find(params[:id].to_i)
-  erb(:'authors/edit')
-end
-
-
-get '/authors/:id' do
-  @author = Author.find(params[:id].to_i)
-  @books = @author.books
-  erb(:'authors/show')
+get '/books/:id/edit' do
+  @book = Book.find(params[:id].to_i)
+  erb(:'books/edit')
 end
 
 
-post '/authors' do
-  @author = Author.new(params)
-  @author.save
-  redirect '/authors'
+get '/book/:id' do
+  @book = Book.find(params[:id].to_i)
+  erb(:'book/show')
 end
 
-post '/authors/:id/delete' do
-  author = Author.find(params['id'].to_i)
-  author.delete
-  redirect '/authors'
+
+post '/books' do
+  @book = Book.new(params)
+  @book.save
+  redirect '/books'
 end
 
-post '/authors/:id' do
-  @author = Author.new(params)
-  @author.update
-  redirect '/authors'
+post '/books/:id/delete' do
+  book = Book.find(params['id'].to_i)
+  book.delete
+  redirect '/books'
+end
+
+post '/books/:id' do
+  @book = Book.new(params)
+  @book.update
+  redirect '/books'
 end
