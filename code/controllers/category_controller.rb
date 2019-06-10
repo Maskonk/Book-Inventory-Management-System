@@ -12,10 +12,10 @@ get '/categories/new' do
   erb(:'categories/new')
 end
 
-# get '/authors/:id/edit' do
-#   @author = Author.find(params[:id].to_i)
-#   erb(:'authors/edit')
-# end
+get '/categories/:id/edit' do
+  @category = Category.find(params[:id].to_i)
+  erb(:'categories/edit')
+end
 #
 #
 # get '/authors/:id' do
@@ -37,8 +37,8 @@ end
 #   redirect '/authors'
 # end
 #
-# post '/authors/:id' do
-#   @author = Author.new(params)
-#   @author.update
-#   redirect '/authors'
-# end
+post '/categories/:id' do
+  @category = Category.new(params)
+  @category.update
+  redirect '/categories'
+end
