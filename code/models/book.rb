@@ -2,7 +2,7 @@ require_relative '../db/sql_runner'
 require_relative 'author'
 
 class Book
-  attr_reader :id, :name, :description, :quantity, :buying_cost, :selling_cost, :author_id, :markup
+  attr_reader :id, :name, :description, :quantity, :buying_cost, :selling_cost, :author_id, :markup, :category_id
   def initialize(options)
     @id = options['id'].to_i
     @name = options['name']
