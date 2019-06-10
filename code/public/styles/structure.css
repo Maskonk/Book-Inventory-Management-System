@@ -14,10 +14,10 @@ nav a {
     color: white;
 }
 
-input {
-    width: 150px;
-    padding: 10px;
-}
+/*input {*/
+/*    width: 150px;*/
+/*    padding: 10px;*/
+/*}*/
 
 input[type="submit"] {
     display: inline;

@@ -25,11 +25,11 @@ end
 # end
 #
 #
-# post '/authors' do
-#   @author = Author.new(params)
-#   @author.save
-#   redirect '/authors'
-# end
+post '/categories' do
+  @category = Category.new(params)
+  @category.save
+  redirect '/categories'
+end
 #
 # post '/authors/:id/delete' do
 #   author = Author.find(params['id'].to_i)
