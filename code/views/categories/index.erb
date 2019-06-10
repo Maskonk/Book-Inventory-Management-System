@@ -1,0 +1,6 @@
+<h2> All Categories </h2>
+<% @categories.each do |category| %>
+  <%= category.name %> <br>
+  <a href="/category/<%= category.id %>"> Find all books in this category. </a>
+  <hr />
+<% end %>

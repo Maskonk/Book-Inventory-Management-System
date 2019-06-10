@@ -42,14 +42,14 @@ class Category
   def self.all
     sql = "SELECT * FROM categories"
     result = SqlRunner.run(sql)
-    result.map {|author| Author.new(author)}
+    result.map {|author| Category.new(author)}
   end
 
   def self.find(id)
     sql = "SELECT * FROM categories WHERE id = $1"
     values = [id]
     result = SqlRunner.run(sql, values)
-    Author.new(result.first)
+    Category.new(result.first)
   end
 
   def self.delete_all

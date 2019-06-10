@@ -6,6 +6,7 @@ require 'pry-byebug'
 
 Book.delete_all
 Author.delete_all
+Category.delete_all
 
 
 author1 = Author.new({'first_name'=>'Robert', 'last_name'=>'Muchamore'})
@@ -14,7 +15,7 @@ author1.save
 author2 = Author.new({'first_name'=>'Wizards of the Coast', 'last_name'=>''})
 author2.save
 
-category1 = Category.new({'name'=>'action'})
+category1 = Category.new({'name'=>'Action'})
 category1.save
 
 category2 = Category.new({'name'=>'Fantasy'})
