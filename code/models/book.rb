@@ -51,6 +51,18 @@ class Book
     a.pretty_name
   end
 
+  def category
+    sql = "SELECT categories.* from categories JOIN books ON categories.id = books.category_id WHERE categories.id = $1"
+    values = [@category_id]
+    result = SqlRunner.run(sql, values).first
+    Category.new(result)
+  end
+
+  def category_name
+    c = category
+    c.name
+  end
+
   def self.all
     sql = "SELECT * FROM books"
     result = SqlRunner.run(sql)

@@ -16,15 +16,13 @@ get '/categories/:id/edit' do
   @category = Category.find(params[:id].to_i)
   erb(:'categories/edit')
 end
-#
-#
-# get '/authors/:id' do
-#   @author = Author.find(params[:id].to_i)
-#   @books = @author.books
-#   erb(:'authors/show')
-# end
-#
-#
+
+get '/categories/:id' do
+  @category = Category.find(params[:id].to_i)
+  @books = @category.books
+  erb(:'categories/show')
+end
+
 post '/categories' do
   @category = Category.new(params)
   @category.save
