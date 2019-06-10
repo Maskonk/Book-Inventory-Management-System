@@ -1,5 +1,7 @@
 <h2> <%= @author.pretty_name %></h2>
-<a href="/authors/<%= @author.id %>/edit"> Edit author </a>
+<form action="/authors/<%= @author.id %>/edit" method="get">
+  <input type="submit" value="Edit Author">
+</form>
 <form action="/authors/<%= @author.id %>/delete" method="post">
   <input type="submit" value="Delete Author">
 </form>
@@ -9,7 +11,10 @@
   <p>  In stock: <%= book.quantity %> </p>
   <p> Buying cost: <%= book.buying_cost %> </p>
   <p> Selling price: <%= book.selling_cost %> </p>
+  <p> Markup: <%= book.markup %>% </p>
   <p> Synopsis: <%= book.description %> </p>
-  <a href="/books/<%= book.id %>"> See book </a>
+  <form action="/books/<%= @author.id %>" method="get">
+    <input type="submit" value="See book">
+  </form>
   <hr />
 <% end %>

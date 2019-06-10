@@ -4,8 +4,8 @@
 <p> Stock: <%= @book.quantity %></p>
 <p> Buying cost: £<%= @book.buying_cost %></p>
 <p> Selling Price: £<%= @book.selling_cost %></p>
+<p> Markup: <%= @book.markup %>% </p>
 <p> Synopsis: <%= @book.description %></p>
-<a href="/books/<%= @book.id %>"> See this book </a> <br>
 <a href="/authors/<%= @book.author_id %>"> See this author </a>
 <hr />
 <a href="/books/<%= @book.id %>/edit"> Edit book </a>

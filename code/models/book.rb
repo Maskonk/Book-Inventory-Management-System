@@ -2,7 +2,7 @@ require_relative '../db/sql_runner'
 require_relative 'author'
 
 class Book
-  attr_reader :id, :name, :description, :quantity, :buying_cost, :selling_cost, :author_id
+  attr_accessor :id, :name, :description, :quantity, :buying_cost, :selling_cost, :author_id, :markup
   def initialize(options)
     @id = options['id'].to_i
     @name = options['name']
@@ -11,6 +11,7 @@ class Book
     @buying_cost = options['buying_cost'].to_f
     @selling_cost = options['selling_cost'].to_f
     @author_id = options['author_id'].to_i
+    @markup = (((@selling_cost / @buying_cost) - 1)*100).round(2)
   end
 
   def save
@@ -38,7 +39,7 @@ class Book
   end
 
   def author
-    sql = "SELECT * from authors JOIN books ON authors.id = books.author_id WHERE authors.id = $1"
+    sql = "SELECT authors.* from authors JOIN books ON authors.id = books.author_id WHERE authors.id = $1"
     values = [@author_id]
     result = SqlRunner.run(sql, values).first
     Author.new(result)
