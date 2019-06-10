@@ -20,9 +20,9 @@ get '/books/:id/edit' do
 end
 
 
-get '/book/:id' do
+get '/books/:id' do
   @book = Book.find(params[:id].to_i)
-  erb(:'book/show')
+  erb(:'books/show')
 end
 
 

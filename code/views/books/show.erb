@@ -1,14 +1,14 @@
-<h2> <%= @author.pretty_name %></h2>
-<a href="/authors/<%= @author.id %>/edit"> Edit Order </a>
-<form action="/authors/<%= @author.id %>/delete" method="post">
-  <input type="submit" value="Delete Author">
+<h2> <%= @book.name %></h2>
+<p> Title: <%= @book.name %></p>
+<p> Author: <%= @book.author_name %></p>
+<p> Stock: <%= @book.quantity %></p>
+<p> Buying cost: £<%= @book.buying_cost %></p>
+<p> Selling Price: £<%= @book.selling_cost %></p>
+<p> Synopsis: <%= @book.description %></p>
+<a href="/books/<%= @book.id %>"> See this book </a> <br>
+<a href="/authors/<%= @book.author_id %>"> See this author </a>
+<hr />
+<a href="/books/<%= @book.id %>/edit"> Edit book </a>
+<form action="/books/<%= @book.id %>/delete" method="post">
+  <input type="submit" value="Delete book">
 </form>
-<h3> Books by this Author: <%= @books.count %> books found. </h3>
-<% @books.each do |book| %>
-  <p> Title:  <%= book.name %> </p>
-  <p>  In stock: <%= book.quantity %> </p>
-  <p> Buying cost: <%= book.buying_cost %> </p>
-  <p> Selling price: <%= book.selling_cost %> </p>
-  <p> Synopsis: <%= book.description %> </p>
-  <hr />
-<% end %>
