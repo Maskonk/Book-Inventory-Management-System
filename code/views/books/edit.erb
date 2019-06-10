@@ -1,11 +1,27 @@
-<h2> Edit <% @book.pretty_name %></h2>
+<h2> Add a new Author</h2>
 
-<form action="/authors/<%= @book.id %>" method="post">
+<form action="/books/<%= @book.id %>" method="post">
   <label for="title"> Title </label>
   <input type="text" name="name" id="title" value="<%= @book.name %>">
   <br>
-  <label for="last-name"> Last name </label>
-  <input type="text" name="last_name" id="last-name" value="<%= @book.last_name %>">
+  <label for="author-select"> Select an Author </label>
+  <select id="author-select" name="author_id">
+    <% @authors.each do |author| %>
+      <option value="<%= author.id %>" <%= "selected" if author.id == @book.author_id %>> <%= author.pretty_name %> </option>
+    <%end %>
+  </select>
   <br>
-  <input type="submit" value="Edit Author">
+  <label for="stock"> Stock </label>
+  <input type="number" name="quantity" id="stock" value="<%= @book.quantity %>">
+  <br>
+  <label for="buying"> Buying cost </label>
+  <input type="number" step="0.01" name="buying_cost" id="buying" value="<%= @book.buying_cost %>">
+  <br>
+  <label for="selling"> Selling price </label>
+  <input type="number" step="0.01" name="selling_cost" id="selling" value="<%= @book.selling_cost %>">
+  <br>
+  <label for="synopsis"> Synopsis </label>
+  <input type="text" name="description" id="synopsis" value="<%= @book.description %>">
+  <br>
+  <input type="submit" value="Edit book">
 </form>
