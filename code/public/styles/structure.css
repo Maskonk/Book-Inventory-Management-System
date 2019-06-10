@@ -1,0 +1,20 @@
+body {
+    background-color: whitesmoke;
+    text-align: center;
+}
+
+nav ul li {
+    background-color: red;
+    border: 1px solid black;
+    display: inline;
+    padding: 3px;
+}
+
+nav a {
+    color: white;
+}
+
+select {
+    width: 150px;
+    padding: 10px;
+}
