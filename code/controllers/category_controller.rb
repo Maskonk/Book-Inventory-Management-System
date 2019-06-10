@@ -28,13 +28,13 @@ post '/categories' do
   @category.save
   redirect '/categories'
 end
-#
-# post '/authors/:id/delete' do
-#   author = Author.find(params['id'].to_i)
-#   author.delete
-#   redirect '/authors'
-# end
-#
+
+post '/categories/:id/delete' do
+  category = Category.find(params['id'].to_i)
+  category.delete
+  redirect '/categories'
+end
+
 post '/categories/:id' do
   @category = Category.new(params)
   @category.update
