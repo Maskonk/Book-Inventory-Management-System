@@ -1,5 +1,5 @@
 <h2> <%= @category.name %></h2>
-<form action="/category/<%= @category.id %>/edit" method="get">
+<form action="/categories/<%= @category.id %>/edit" method="get">
   <input type="submit" value="Edit Category">
 </form>
 <p style="color:red;">  WARNING deleting a category will also delete any books associated with that category! </p>
