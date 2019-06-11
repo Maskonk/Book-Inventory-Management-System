@@ -6,9 +6,12 @@
 <p> Selling Price: £<%= @book.selling_cost %></p>
 <p> Markup: <%= @book.markup %>% </p>
 <p> Synopsis: <%= @book.description %></p>
-<a href="/authors/<%= @book.author_id %>"> See this author </a>
-<hr />
-<a href="/books/<%= @book.id %>/edit"> Edit book </a>
+<form action="/authors/<%= @book.author_id %>" method="get">
+  <input type="submit" value="See this Author">
+</form>
+<form action="/books/<%= @book.id %>/edit" method="get">
+  <input type="submit" value="Edit book">
+</form>
 <form action="/books/<%= @book.id %>/delete" method="post">
   <input type="submit" value="Delete book">
 </form>
