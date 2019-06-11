@@ -63,6 +63,10 @@ class Book
     c.name
   end
 
+  def self.low_stock
+    sql = "SELECT * FROM books WHERE "
+  end
+
   def self.all
     sql = "SELECT * FROM books"
     result = SqlRunner.run(sql)
