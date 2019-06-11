@@ -1,0 +1,25 @@
+<h2> All Books </h2>
+<% @books.each do |book| %>
+  <p> Title: <%= book.name %></p>
+  <p> Author: <%= book.author_name %></p>
+  <p> Category: <%= book.category_name %></p>
+  <% if book.quantity.to_i == 0 %>
+    <p style="color:red;"> Stock: <%= book.quantity %></p>
+  <% elsif book.quantity.to_i <= 5 %>
+    <p style="color:orange;"> Stock: <%= book.quantity %></p>
+  <% else %>
+    <p style="color:green;"> Stock: <%= book.quantity %></p>
+  <% end %>
+  <p> Buying cost: £<%= book.buying_cost %></p>
+  <p> Selling Price: £<%= book.selling_cost %></p>
+  <p> Markup: <%= book.markup %>% </p>
+  <p> Synopsis: <%= book.description %></p>
+  <!--  <button><a href="/books/<%#= book.id %>"> See this book</a></button>-->
+  <form action="/books/<%= book.id %>" method="get">
+    <input type="submit" value="See this book">
+  </form>
+  <form action="/authors/<%= book.author_id %>" method="get">
+    <input type="submit" value="See this author">
+  </form>
+  <hr />
+<% end %>

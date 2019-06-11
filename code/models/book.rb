@@ -64,12 +64,21 @@ class Book
   end
 
   def self.low_stock
-    sql = "SELECT * FROM books WHERE "
+    sql = "SELECT * FROM books WHERE quantity <= 5 ORDER BY Quantity"
+    result = SqlRunner.run(sql)
+    result.map {|book| Book.new(book)}
   end
 
   def self.all
     sql = "SELECT * FROM books"
     result = SqlRunner.run(sql)
+    result.map {|item| Book.new(item)}
+  end
+
+  def self.all_sort(order)
+    sql = "SELECT * FROM books ORDER BY $1"
+    values = [order]
+    result = SqlRunner.run(sql, values)
     result.map {|item| Book.new(item)}
   end
 

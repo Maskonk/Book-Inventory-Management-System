@@ -14,6 +14,11 @@ get '/books/new' do
   erb(:'books/new')
 end
 
+get '/books/low' do
+  @books = Book.low_stock
+  erb(:'books/low')
+end
+
 get '/books/:id/edit' do
   @book = Book.find(params[:id].to_i)
   @categories = Category.all
@@ -27,6 +32,10 @@ get '/books/:id' do
   erb(:'books/show')
 end
 
+post '/books/sorted' do
+  @books = Book.all_sort(params['order']) if params['order'] != "none"
+  erb(:'books/index')
+end
 
 post '/books' do
   @book = Book.new(params)
