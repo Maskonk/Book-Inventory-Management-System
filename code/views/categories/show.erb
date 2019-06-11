@@ -1,12 +1,12 @@
-<h2> <%= @author.pretty_name %></h2>
-<form action="/authors/<%= @author.id %>/edit" method="get">
-  <input type="submit" value="Edit Author">
+<h2> <%= @category.name %></h2>
+<form action="/categories/<%= @category.id %>/edit" method="get">
+  <input type="submit" value="Edit Category">
 </form>
- <p style="color:red;">  WARNING deleting an author will also delete any books associated with that author! </p>
-<form action="/authors/<%= @author.id %>/delete" method="post">
-  <input type="submit" value="Delete Author">
+<p style="color:red;">  WARNING deleting a category will also delete any books associated with that category! </p>
+<form action="/categories/<%= @category.id %>/delete" method="post">
+  <input type="submit" value="Delete Category">
 </form>
-<h3> Books by this Author: <%= @books.count %> books found. </h3>
+<h3> Books in this Category: <%= @books.count %> books found. </h3>
 <% @books.each do |book| %>
   <p> Title:  <%= book.name %> </p>
   <p> Author:  <%= book.author_name %> </p>

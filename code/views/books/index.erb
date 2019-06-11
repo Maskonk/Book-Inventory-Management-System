@@ -1,4 +1,4 @@
-<h2> All Authors</h2>
+<h2> All Books </h2>
 <% @books.each do |book| %>
   <p> Title: <%= book.name %></p>
   <p> Author: <%= book.author_name %></p>
@@ -11,8 +11,13 @@
     <% end %>
   <p> Buying cost: £<%= book.buying_cost %></p>
   <p> Selling Price: £<%= book.selling_cost %></p>
+  <p> Markup: <%= book.markup %>% </p>
   <p> Synopsis: <%= book.description %></p>
-  <a href="/books/<%= book.id %>"> See this book </a> <br>
-  <a href="/authors/<%= book.author_id %>"> See this author </a>
+  <form action="/books/<%= book.id %>" method="get">
+    <input type="submit" value="See this book">
+  </form>
+  <form action="/authors/<%= book.author_id %>" method="get">
+    <input type="submit" value="See this author">
+  </form>
 <hr />
 <% end %>

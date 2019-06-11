@@ -1,4 +1,4 @@
-<h2> Add a new Author</h2>
+<h2> Add a new Book </h2>
 
 <form action="/books" method="post">
   <label for="title"> Title </label>
@@ -9,6 +9,13 @@
     <% @authors.each do |author| %>
     <option value="<%= author.id %>"> <%= author.pretty_name %> </option>
   <%end %>
+  </select>
+  <br>
+  <label for="category-select"> Select a Category </label>
+  <select id="category-select" name="category_id">
+    <% @categories.each do |category| %>
+      <option value="<%= category.id %>"> <%= category.name %> </option>
+    <%end %>
   </select>
   <br>
   <label for="stock"> Stock </label>

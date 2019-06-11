@@ -10,11 +10,13 @@ end
 
 get '/books/new' do
   @authors = Author.all
+  @categories = Category.all
   erb(:'books/new')
 end
 
 get '/books/:id/edit' do
   @book = Book.find(params[:id].to_i)
+  @categories = Category.all
   @authors = Author.all
   erb(:'books/edit')
 end

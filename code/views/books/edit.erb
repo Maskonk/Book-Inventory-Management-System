@@ -1,4 +1,4 @@
-<h2> Add a new Author</h2>
+<h2> Edit <%= @book.name %> </h2>
 
 <form action="/books/<%= @book.id %>" method="post">
   <label for="title"> Title </label>
@@ -8,6 +8,13 @@
   <select id="author-select" name="author_id">
     <% @authors.each do |author| %>
       <option value="<%= author.id %>" <%= "selected" if author.id == @book.author_id %>> <%= author.pretty_name %> </option>
+    <%end %>
+  </select>
+  <br>
+  <label for="category-select"> Select a Category </label>
+  <select id="category-select" name="category_id">
+    <% @categories.each do |category| %>
+      <option value="<%= category.id %>" <%= "selected" if category.id == @book.category_id %>> <%= category.name %> </option>
     <%end %>
   </select>
   <br>
