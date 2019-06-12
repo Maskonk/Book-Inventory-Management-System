@@ -12,6 +12,8 @@ end
 get '/books/new' do
   @authors = Author.all
   @categories = Category.all
+  @authors.sort_by! { | author | author.pretty_name }
+  @categories.sort_by! { | category | category.name }
   erb(:'books/new')
 end
 
@@ -24,6 +26,8 @@ get '/books/:id/edit' do
   @book = Book.find(params[:id].to_i)
   @categories = Category.all
   @authors = Author.all
+  @authors.sort_by! { | author | author.pretty_name }
+  @categories.sort_by! { | category | category.name }
   erb(:'books/edit')
 end
 
