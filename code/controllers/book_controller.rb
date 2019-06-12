@@ -5,6 +5,7 @@ require_relative '../models/book'
 
 get '/books' do
   @books = Book.all
+  @books.sort_by! { | book | book.name }
   erb(:'books/index')
 end
 
@@ -33,7 +34,7 @@ get '/books/:id' do
 end
 
 post '/books/sorted' do
-  @books = Book.all_sort(params['order']) if params['order'] != "none"
+  @books = Book.all_sort(params['order'])
   erb(:'books/index')
 end
 

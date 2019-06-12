@@ -1,4 +1,18 @@
 <h2> All Books </h2>
+<form action="/books/sorted" method="post">
+  <label for="order-select"> Sort by </label>
+  <select id="order-select" name="order">
+    <option value="none"> None </option>
+    <option value="books.name"> Title </option>
+    <option value="authors.first_name, authors.last_name"> Author </option>
+    <option value="categories.name"> Category </option>
+    <option value="quantity"> Stock </option>
+    <option value="buying_cost"> Buying Cost </option>
+    <option value="selling_cost"> Selling Price </option>
+  </select>
+  <input type="submit" value="Sort">
+</form>
+
 <% @books.each do |book| %>
   <p> Title: <%= book.name %></p>
   <p> Author: <%= book.author_name %></p>

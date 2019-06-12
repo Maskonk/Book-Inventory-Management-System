@@ -5,6 +5,7 @@ require_relative '../models/category'
 
 get '/categories' do
   @categories = Category.all
+  @categories.sort_by! { | category | category.name }
   erb(:'categories/index')
 end
 
@@ -20,6 +21,7 @@ end
 get '/categories/:id' do
   @category = Category.find(params[:id].to_i)
   @books = @category.books
+  @books.sort_by! { | book | book.name }
   erb(:'categories/show')
 end
 

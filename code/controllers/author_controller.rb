@@ -5,6 +5,7 @@ require_relative '../models/author'
 
 get '/authors' do
   @authors = Author.all
+  @authors.sort_by! { | author | author.pretty_name }
   erb(:'authors/index')
 end
 
@@ -21,6 +22,7 @@ end
 get '/authors/:id' do
   @author = Author.find(params[:id].to_i)
   @books = @author.books
+  @books.sort_by! { | book | book.name }
   erb(:'authors/show')
 end
 

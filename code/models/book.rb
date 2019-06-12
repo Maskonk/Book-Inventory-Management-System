@@ -76,10 +76,16 @@ class Book
   end
 
   def self.all_sort(order)
-    sql = "SELECT * FROM books ORDER BY $1"
-    values = [order]
-    result = SqlRunner.run(sql, values)
-    result.map {|item| Book.new(item)}
+    if order == "none"
+      self.all
+    else
+      sql = "SELECT books.*, authors.first_name, authors.last_name, categories.name AS c_name FROM books JOIN authors ON books.author_id = authors.id
+            JOIN categories ON books.category_id = categories.id ORDER BY #{order}"
+      result = SqlRunner.run(sql)
+      books = result.map {|item| Book.new(item)}
+      p books
+      return books
+    end
   end
 
   def self.find(id)
